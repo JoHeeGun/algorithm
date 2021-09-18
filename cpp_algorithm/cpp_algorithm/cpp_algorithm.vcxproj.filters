@@ -6,7 +6,19 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="coin.cpp">
+    <ClCompile Include="coin.h">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\problem3_1.h">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\problem3_2.h">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\problem3_3.h">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>

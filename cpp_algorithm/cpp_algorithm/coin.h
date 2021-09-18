@@ -1,4 +1,5 @@
-﻿#include <iostream>
+﻿#pragma once
+#include <iostream>
 #include <vector>
 #include <algorithm>
 
@@ -6,7 +7,7 @@ using namespace std;
 int cmp(int a, int b) {
 	return a > b;
 }
-int main() {
+void coin() {
 	int n, k, ans = 0;
 	cin >> n >> k;
 	vector<int> v(n);
