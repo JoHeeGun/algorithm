@@ -2,7 +2,7 @@
 #include<iostream>
 #include<algorithm>
 
-void problem3_3(void) {
+inline void problem3_3(void) {
 	using namespace std;
 	const int MAX = 1000;
 	int n, i;

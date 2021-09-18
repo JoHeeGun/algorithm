@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 
-void problem3_1(void) {
+inline void problem3_1(void) {
 	using namespace std;
 	int n, k;
 	int result = 0;

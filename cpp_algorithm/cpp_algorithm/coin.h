@@ -4,10 +4,10 @@
 #include <algorithm>
 
 using namespace std;
-int cmp(int a, int b) {
+inline int cmp(int a, int b) {
 	return a > b;
 }
-void coin() {
+inline void coin() {
 	int n, k, ans = 0;
 	cin >> n >> k;
 	vector<int> v(n);
