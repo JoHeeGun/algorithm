@@ -1,0 +1,24 @@
+#include<iostream>
+#include<string>
+
+int main() {
+	int N;
+	int x = 1, y = 1;
+	std::string D;
+	std::cin >> N;
+	std::cin.ignore();
+	getline(std::cin, D);
+	for (int i = 0; i < D.length(); i++) {
+		if (D[i] == ' ') continue;
+		if (D[i] == 'L' && y != 1)
+			y -= 1;
+		else if (D[i] == 'R' && y != N)
+			y += 1;
+		else if (D[i] == 'U' && x != 1)
+			x -= 1;
+		else if (D[i] == 'D' && x != N)
+			x += 1;
+	}
+	std::cout << x << " " << y;
+	return 0;
+}
