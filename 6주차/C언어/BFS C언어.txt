@@ -1,0 +1,54 @@
+#include<stdio.h>
+#define MAX 1001
+
+int adj[MAX][MAX]; 
+int discovered[MAX]; 
+
+typedef struct Queue
+{
+int front, rear;
+int data[MAX];
+}Queue;
+
+void BFS(int start, int N) {
+  int here, there;
+  
+  Queue q;
+  q.front = -1;
+  q.rear = -1;
+  discovered[start] = 1; 
+  q.data[++q.rear] = start; // push
+
+  while(q.front < q.rear) {
+    here = q.data[++q.front]; // pop
+    printf("%d ", here);
+
+    for(int i=1; i<=N; i++) {
+       if(adj[here][i]) {
+        there = i;
+       
+        if(!discovered[there]) {
+           discovered[there] = 1;
+           q.data[++q.rear] = there; // push
+         }
+       }
+     }
+    }
+  }
+
+  int main() {
+    int N,M,v; 
+    int x,y;
+    
+    scanf("%d %d %d", &N, &M, &v);
+    for(int i=1; i<=M; i++) { 
+        scanf("%d %d", &x,&y);
+        adj[x][y]=1;
+        adj[y][x]=1; 
+      }
+
+    BFS(v, N);
+    
+    return 0;
+}
+

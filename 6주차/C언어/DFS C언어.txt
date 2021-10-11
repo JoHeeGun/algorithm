@@ -1,0 +1,44 @@
+#include<stdio.h>
+
+#define MAX 1001
+int adj[MAX][MAX]; 
+int visited[MAX];
+
+void init(int N) {
+      for(int i=1; i<=N; i++) {
+        visited[i] = 0; 
+      }
+    }
+
+void DFS(int here, int N) { 
+    int there;
+    
+    visited[here] = 1; //방문 check
+    printf("%d ", here); //정점 출력
+
+    for(int i = 1; i <= N; i++) {
+      if(adj[here][i]) {
+        there = i;
+        if(!visited[there]) {
+           DFS(there, N);
+        }
+      }
+    }
+  }
+
+int main() {
+    int N,M,v; 
+    int x,y; 
+
+    scanf("%d %d %d", &N, &M, &v);
+    for(int i=1; i<=M; i++) { 
+      scanf("%d %d", &x,&y);
+      adj[x][y]=1;
+      adj[y][x]=1; 
+    }
+
+    DFS(v, N);
+    
+    return 0;
+}
+
