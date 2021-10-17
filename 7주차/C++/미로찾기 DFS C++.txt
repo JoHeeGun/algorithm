@@ -1,0 +1,49 @@
+#include <iostream>
+#include <string>
+#include <queue>
+using namespace std;
+
+bool maze[101][101];
+int counts[101][101] = { 0, };
+int n, m;
+
+int BFS(int X, int Y) {
+	queue<pair<int, int>> q;
+	q.push(make_pair(X, Y));
+	counts[X][Y] = 1;
+
+	while (!q.empty()) {
+		int currX = q.front().first;
+		int currY = q.front().second;
+		q.pop();
+
+		int dirX[] = { 0, 0, 1, -1 };
+		int dirY[] = { 1, -1, 0, 0 };
+
+		for (int i = 0; i < 4; i++) {
+			int nextX = currX + dirX[i];
+			int nextY = currY + dirY[i];
+			if (0 <= nextX && nextX < n && 0 <= nextY && nextY < m
+				&& maze[nextX][nextY] == true && counts[nextX][nextY] == 0) {
+				q.push(make_pair(nextX, nextY));
+				counts[nextX][nextY] = counts[currX][currY] + 1;
+			}
+		}
+	}
+
+	return counts[n - 1][m - 1];
+}
+
+int main() {
+
+	cin >> n >> m;
+	for (int i = 0; i < n; i++) {
+		string temp;
+		cin >> temp;
+		for (int j = 0; j < m; j++) {
+			maze[i][j] = temp[j] == '0' ? false : true ;
+		}
+	}
+
+	cout << BFS(0, 0) << endl;
+}
