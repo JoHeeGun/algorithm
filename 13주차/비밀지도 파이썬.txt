@@ -1,0 +1,29 @@
+def solution(n, arr1, arr2):
+    def num_to_binary(n, arr_input):
+        arr_list = []
+        for num in arr_input:
+            binary_string = "{0:b}".format(num)
+            binary_string_rev = binary_string[::-1]
+
+            arr = [0] * n
+            for i, binary in enumerate(binary_string_rev):
+                if binary == '1':
+                    arr[n-1-i] = binary
+
+            arr_list.append(arr)
+        return arr_list
+
+    arr1_list = num_to_binary(n, arr1)
+    arr2_list = num_to_binary(n, arr2)
+
+    answer = []
+    for al1, al2 in zip(arr1_list, arr2_list):
+        one_line = ''
+        for a1, a2 in zip(al1, al2):
+            if a1 == '1' or a2 == '1':
+                one_line += '#'
+            else:
+                one_line += ' '
+        answer.append(one_line)
+
+    return answer
